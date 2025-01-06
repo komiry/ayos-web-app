@@ -1,10 +1,16 @@
 import React from 'react'
+import Header from '../components/Header'
+import SpecialityMenu from '../components/SpecialityMenu'
+import TopTechnicians from '../components/TopTechnicians'
+import Banner from '../components/Banner'
 
 const Home = () => {
   return (
     <div>
-    Nice once
-    
+      <Header />
+      <SpecialityMenu />
+      <TopTechnicians />
+      <Banner />
     </div>
   )
 }
