@@ -50,7 +50,7 @@ const AdminContextProvider = (props) => {
     }
 
 
-    const getAllAppointment = async () => {
+    const getAllAppointments = async () => {
 
         try {
 
