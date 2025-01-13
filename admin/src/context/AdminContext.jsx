@@ -27,7 +27,7 @@ const AdminContextProvider = (props) => {
             }
 
         } catch (error) {
-            toast.errr(error.message)
+            toast.error(error.message)
         }
 
     }
