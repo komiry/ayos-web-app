@@ -8,7 +8,7 @@ const Footer = () => {
 
         <div>
           <img className='mb-5 w-40' src={assets.logo} alt="" />
-          <p className='w-full md:w-2/3 text-gray-600 leading-6'>We connects individuals in-need appliance and gadget repairs with skilled service professionals in their area. The web-application aims to bridge the gap between repair needs and services, addressing key challenges faced in the appliance repair industry. </p>
+          <p className='w-full md:w-2/3 text-gray-600 leading-6'>AYOS revolutionizes appliance repair by connecting homeowners directly with certified technicians via their smartphones. Our platform ensures prompt, reliable service, minimizing costly delays and breakdowns. With transparent pricing and efficient solutions, we restore appliance functionality quickly, making home maintenance seamless and stress-free.</p>
         </div>
 
         <div>
@@ -23,8 +23,8 @@ const Footer = () => {
         <div>
           <p className='text-xl font-medium mb-5'>GET IN TOUCH</p>
           <ul className='flex flex-col gap-2 text-gray-600'>
-            <li>639159092291</li>
-            <li>ryagondev@gmail.com</li>
+            <li>915 909 2291</li>
+            <li>ayosdev@gmail.com</li>
           </ul>
         </div>
 
@@ -32,7 +32,7 @@ const Footer = () => {
 
       <div>
         <hr />
-        <p className='py-5 text-sm text-center'>Copyright 2024 @ Ayos.com - All Right Reserved.</p>
+        <p className='py-5 text-sm text-center'>Copyright 2024 @ AYOS.com - All Right Reserved.</p>
       </div>
 
     </div>
