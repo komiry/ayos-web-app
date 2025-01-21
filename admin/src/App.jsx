@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { TechContext } from './context/TechContext';
+import { TechnicianContext } from './context/TechnicianContext';
 import { AdminContext } from './context/AdminContext';
 import { Route, Routes } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify';
@@ -9,15 +9,15 @@ import Sidebar from './components/Sidebar'
 import Dashboard from './pages/Admin/Dashboard';
 import AllAppointments from './pages/Admin/AllAppointments';
 import AddTechnician from './pages/Admin/AddTechnician';
-import TechniciansList from './pages/Admin/TechnicianList';
+import TechnicianList from './pages/Admin/TechnicianList';
 import Login from './pages/Login';
-import TechnicianAppointments from './pages/Technician/TecnicianAppointments';
+import TechnicianAppointment from './pages/Technician/TechnicianAppointment';
 import TechnicianDashboard from './pages/Technician/TechnicianDashboard';
 import TechnicianProfile from './pages/Technician/TechnicianProfile';
 
 const App = () => {
 
-  const { dToken } = useContext(TechContext)
+  const { dToken } = useContext(TechnicianContext)
   const { aToken } = useContext(AdminContext)
 
   return dToken || aToken ? (
@@ -30,11 +30,11 @@ const App = () => {
           <Route path='/' element={<></>} />
           <Route path='/admin-dashboard' element={<Dashboard />} />
           <Route path='/all-appointments' element={<AllAppointments />} />
-          <Route path='/add-technician' element={<Addtechnician />} />
-          <Route path='/technician-list' element={<techniciansList />} />
-          <Route path='/technician-dashboard' element={<technicianDashboard />} />
-          <Route path='/technician-appointments' element={<technicianAppointments />} />
-          <Route path='/technician-profile' element={<technicianProfile />} />
+          <Route path='/add-technician' element={<AddTechnician />} />
+          <Route path='/technician-list' element={<TechnicianList />} />
+          <Route path='/technician-dashboard' element={<TechnicianDashboard />} />
+          <Route path='/technician-appointments' element={<TechnicianAppointment />} />
+          <Route path='/technician-profile' element={<TechnicianProfile />} />
         </Routes>
       </div>
     </div>
