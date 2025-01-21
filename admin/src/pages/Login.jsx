@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useContext, useState } from 'react'
-import { TechContext } from '../context/TechContext'
+import { TechnicianContext } from '../context/TechnicianContext'
 import { AdminContext } from '../context/AdminContext'
 import { toast } from 'react-toastify'
 
@@ -13,7 +13,7 @@ const Login = () => {
 
   const backendUrl = import.meta.env.VITE_BACKEND_URL
 
-  const { setDToken } = useContext(TechContext)
+  const { setDToken } = useContext(TechnicianContext)
   const { setAToken } = useContext(AdminContext)
 
   const onSubmitHandler = async (event) => {
@@ -58,7 +58,7 @@ const Login = () => {
         <button className='bg-primary text-white w-full py-2 rounded-md text-base'>Login</button>
         {
           state === 'Admin'
-            ? <p>Technician Login? <span onClick={() => setState('Technician')} className='text-primary underline cursor-pointer'>Click here</span></p>
+            ? <p>Technican Login? <span onClick={() => setState('Technician')} className='text-primary underline cursor-pointer'>Click here</span></p>
             : <p>Admin Login? <span onClick={() => setState('Admin')} className='text-primary underline cursor-pointer'>Click here</span></p>
         }
       </div>
