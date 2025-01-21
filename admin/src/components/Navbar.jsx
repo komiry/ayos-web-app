@@ -1,12 +1,12 @@
 import React, { useContext } from 'react'
 import { assets } from '../assets/assets'
-import { TechContext } from '../context/TechContext'
+import { TechnicianContext } from '../context/TechnicianContext'
 import { AdminContext } from '../context/AdminContext'
 import { useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
 
-  const { dToken, setDToken } = useContext(TechContext)
+  const { dToken, setDToken } = useContext(TechnicianContext)
   const { aToken, setAToken } = useContext(AdminContext)
 
   const navigate = useNavigate()
