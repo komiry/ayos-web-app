@@ -1,6 +1,5 @@
 import jwt from 'jsonwebtoken'
 
-
 const authTechnician = async (req, res, next) => {
     const { dtoken } = req.headers
     if (!dtoken) {
