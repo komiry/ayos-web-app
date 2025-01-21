@@ -1,13 +1,13 @@
 import React from 'react'
 import { useContext } from 'react'
 import { useEffect } from 'react'
-import { TechContext } from '../../context/TechContext'
+import { TechnicianContext } from '../../context/TechnicianContext'
 import { assets } from '../../assets/assets'
 import { AppContext } from '../../context/AppContext'
 
 const TechnicianDashboard = () => {
 
-  const { dToken, dashData, getDashData, cancelAppointment, completeAppointment } = useContext(TechContext)
+  const { dToken, dashData, getDashData, cancelAppointment, completeAppointment } = useContext(TechnicianContext)
   const { slotDateFormat, currency } = useContext(AppContext)
 
 
@@ -38,7 +38,7 @@ const TechnicianDashboard = () => {
           </div>
         </div>
         <div className='flex items-center gap-2 bg-white p-4 min-w-52 rounded border-2 border-gray-100 cursor-pointer hover:scale-105 transition-all'>
-          <img className='w-14' src={assets.patients_icon} alt="" />
+          <img className='w-14' src={assets.customer_icon} alt="" />
           <div>
             <p className='text-xl font-semibold text-gray-600'>{dashData.patients}</p>
             <p className='text-gray-400'>Customers</p></div>

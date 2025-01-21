@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { TechContext } from '../../context/TechContext'
+import { TechnicianContext } from '../../context/TechnicianContext'
 import { AppContext } from '../../context/AppContext'
 import { toast } from 'react-toastify'
 import axios from 'axios'
 
 const TechnicianProfile = () => {
 
-    const { dToken, profileData, setProfileData, getProfileData } = useContext(TechContext)
+    const { dToken, profileData, setProfileData, getProfileData } = useContext(TechnicianContext)
     const { currency, backendUrl } = useContext(AppContext)
     const [isEdit, setIsEdit] = useState(false)
 
@@ -21,7 +21,7 @@ const TechnicianProfile = () => {
                 available: profileData.available
             }
 
-            const { data } = await axios.post(backendUrl + '/api/Technician/update-profile', updateData, { headers: { dToken } })
+            const { data } = await axios.post(backendUrl + '/api/technician/update-profile', updateData, { headers: { dToken } })
 
             if (data.success) {
                 toast.success(data.message)
@@ -59,7 +59,7 @@ const TechnicianProfile = () => {
 
                     <p className='flex items-center gap-2 text-3xl font-medium text-gray-700'>{profileData.name}</p>
                     <div className='flex items-center gap-2 mt-1 text-gray-600'>
-                        <p>{profileData.degree} - {profileData.speciality}</p>
+                        <p>{profileData.degree}</p>
                         <button className='py-0.5 px-2 border text-xs rounded-full'>{profileData.experience}</button>
                     </div>
 
