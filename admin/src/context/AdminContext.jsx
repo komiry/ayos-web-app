@@ -12,16 +12,17 @@ const AdminContextProvider = (props) => {
     const [aToken, setAToken] = useState(localStorage.getItem('aToken') ? localStorage.getItem('aToken') : '')
 
     const [appointments, setAppointments] = useState([])
-    const [techs, setTechs] = useState([])
+    const [technician, setTechnician] = useState([])
     const [dashData, setDashData] = useState(false)
 
-    const getAllTechs = async () => {
+    
+    const getAllTechnician = async () => {
 
         try {
 
-            const { data } = await axios.get(backendUrl + '/api/admin/all-techs', { headers: { aToken } })
+            const { data } = await axios.get(backendUrl + '/api/admin/all-technician', { headers: { aToken } })
             if (data.success) {
-                setTechs(data.techs)
+                setTechnician(data.technician)
             } else {
                 toast.error(data.message)
             }
@@ -32,13 +33,14 @@ const AdminContextProvider = (props) => {
 
     }
 
+
     const changeAvailability = async (tcId) => {
         try {
 
             const { data } = await axios.post(backendUrl + '/api/admin/change-availability', { tcId }, { headers: { aToken } })
             if (data.success) {
                 toast.success(data.message)
-                getAlltechs()
+                getAllTechnician()
             } else {
                 toast.error(data.message)
             }
@@ -50,6 +52,7 @@ const AdminContextProvider = (props) => {
     }
 
 
+ 
     const getAllAppointments = async () => {
 
         try {
@@ -68,7 +71,7 @@ const AdminContextProvider = (props) => {
 
     }
 
-    // Function to cancel appointment using API
+
     const cancelAppointment = async (appointmentId) => {
 
         try {
@@ -89,6 +92,7 @@ const AdminContextProvider = (props) => {
 
     }
 
+    // Getting Admin Dashboard data from Database using API
     const getDashData = async () => {
         try {
 
@@ -109,8 +113,8 @@ const AdminContextProvider = (props) => {
 
     const value = {
         aToken, setAToken,
-        techs,
-        getAllTechs,
+        technician,
+        getAllTechnician,
         changeAvailability,
         appointments,
         getAllAppointments,
