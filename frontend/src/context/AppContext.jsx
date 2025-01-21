@@ -9,18 +9,17 @@ const AppContextProvider = (props) => {
     const currencySymbol = '$'
     const backendUrl = import.meta.env.VITE_BACKEND_URL
 
-    const [technicians, setTechnicians] = useState([])
+    const [technician, setTechnician] = useState([])
     const [token, setToken] = useState(localStorage.getItem('token') ? localStorage.getItem('token') : '')
     const [userData, setUserData] = useState(false)
 
-
-    const getTctosData = async () => {
+        const getDoctosData = async () => {
 
         try {
 
             const { data } = await axios.get(backendUrl + '/api/technician/list')
             if (data.success) {
-                setTechnicians(data.technicians)
+                setTechnician(data.technician)
             } else {
                 toast.error(data.message)
             }
@@ -53,7 +52,7 @@ const AppContextProvider = (props) => {
     }
 
     useEffect(() => {
-        getTctosData()
+        getDoctosData()
     }, [])
 
     useEffect(() => {
@@ -63,7 +62,7 @@ const AppContextProvider = (props) => {
     }, [token])
 
     const value = {
-        technicians, getTctosData,
+        technician, getDoctosData,
         currencySymbol,
         backendUrl,
         token, setToken,
