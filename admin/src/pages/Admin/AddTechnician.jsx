@@ -5,9 +5,9 @@ import axios from 'axios'
 import { AdminContext } from '../../context/AdminContext'
 import { AppContext } from '../../context/AppContext'
 
-const AddTech = () => {
+const AddTechnician = () => {
 
-    const [tcImg, settcImg] = useState(false)
+    const [docImg, setDocImg] = useState(false)
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -27,13 +27,13 @@ const AddTech = () => {
 
         try {
 
-            if (!tcImg) {
+            if (!docImg) {
                 return toast.error('Image Not Selected')
             }
 
             const formData = new FormData();
 
-            formData.append('image', tcImg)
+            formData.append('image', docImg)
             formData.append('name', name)
             formData.append('email', email)
             formData.append('password', password)
@@ -49,10 +49,10 @@ const AddTech = () => {
                 console.log(`${key}: ${value}`);
             });
 
-            const { data } = await axios.post(backendUrl + '/api/admin/add-Tech', formData, { headers: { aToken } })
+            const { data } = await axios.post(backendUrl + '/api/admin/add-technician', formData, { headers: { aToken } })
             if (data.success) {
                 toast.success(data.message)
-                settcImg(false)
+                setDocImg(false)
                 setName('')
                 setPassword('')
                 setEmail('')
@@ -75,15 +75,15 @@ const AddTech = () => {
     return (
         <form onSubmit={onSubmitHandler} className='m-5 w-full'>
 
-            <p className='mb-3 text-lg font-medium'>Add Tech</p>
+            <p className='mb-3 text-lg font-medium'>Add Technician</p>
 
             <div className='bg-white px-8 py-8 border rounded w-full max-w-4xl max-h-[80vh] overflow-y-scroll'>
                 <div className='flex items-center gap-4 mb-8 text-gray-500'>
-                    <label htmlFor="tc-img">
-                        <img className='w-16 bg-gray-100 rounded-full cursor-pointer' src={tcImg ? URL.createObjectURL(tcImg) : assets.upload_area} alt="" />
+                    <label htmlFor="doc-img">
+                        <img className='w-16 bg-gray-100 rounded-full cursor-pointer' src={docImg ? URL.createObjectURL(docImg) : assets.upload_area} alt="" />
                     </label>
-                    <input onChange={(e) => settcImg(e.target.files[0])} type="file" name="" id="tc-img" hidden />
-                    <p>Upload Tech <br /> picture</p>
+                    <input onChange={(e) => setDocImg(e.target.files[0])} type="file" name="" id="doc-img" hidden />
+                    <p>Upload technician <br /> picture</p>
                 </div>
 
                 <div className='flex flex-col lg:flex-row items-start gap-10 text-gray-600'>
@@ -96,7 +96,7 @@ const AddTech = () => {
                         </div>
 
                         <div className='flex-1 flex flex-col gap-1'>
-                            <p>Tech Email</p>
+                            <p>Technician Email</p>
                             <input onChange={e => setEmail(e.target.value)} value={email} className='border rounded px-3 py-2' type="email" placeholder='Email' required />
                         </div>
 
@@ -123,7 +123,7 @@ const AddTech = () => {
 
                         <div className='flex-1 flex flex-col gap-1'>
                             <p>Fees</p>
-                            <input onChange={e => setFees(e.target.value)} value={fees} className='border rounded px-3 py-2' type="number" placeholder='Tech fees' required />
+                            <input onChange={e => setFees(e.target.value)} value={fees} className='border rounded px-3 py-2' type="number" placeholder='Technician appointment fees' required />
                         </div>
 
                     </div>
@@ -144,8 +144,8 @@ const AddTech = () => {
 
 
                         <div className='flex-1 flex flex-col gap-1'>
-                            <p>Trainings</p>
-                            <input onChange={e => setDegree(e.target.value)} value={degree} className='border rounded px-3 py-2' type="text" placeholder='Degree' required />
+                            <p>Certification</p>
+                            <input onChange={e => setDegree(e.target.value)} value={degree} className='border rounded px-3 py-2' type="text" placeholder='Certificate' required />
                         </div>
 
                         <div className='flex-1 flex flex-col gap-1'>
@@ -159,11 +159,11 @@ const AddTech = () => {
                 </div>
 
                 <div>
-                    <p className='mt-4 mb-2'>About Tech</p>
-                    <textarea onChange={e => setAbout(e.target.value)} value={about} className='w-full px-4 pt-2 border rounded' rows={5} placeholder='write about Tech'></textarea>
+                    <p className='mt-4 mb-2'>About Technician</p>
+                    <textarea onChange={e => setAbout(e.target.value)} value={about} className='w-full px-4 pt-2 border rounded' rows={5} placeholder='write about technician'></textarea>
                 </div>
 
-                <button type='submit' className='bg-primary px-10 py-3 mt-4 text-white rounded-full'>Add Tech</button>
+                <button type='submit' className='bg-primary px-10 py-3 mt-4 text-white rounded-full'>Add technician</button>
 
             </div>
 
@@ -172,4 +172,4 @@ const AddTech = () => {
     )
 }
 
-export default AddTech
+export default AddTechnician
